@@ -1,21 +1,49 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FixVolt - Naprawa Elektroniki Wrocław</title>
+    <title>FixVolt - Naprawa Inwerterów i Elektroniki Mocy Wrocław</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; background-color: #121212; color: white; text-align: center; padding: 50px; }
-        h1 { color: #f39c12; font-size: 3rem; }
-        p { font-size: 1.2rem; }
-        .btn { display: inline-block; background: #f39c12; color: black; padding: 15px 30px; 
-               text-decoration: none; font-weight: bold; border-radius: 5px; margin-top: 20px; }
+        :root { --primary: #f39c12; --dark-bg: #121212; --card-bg: #1e1e1e; --text: #ffffff; }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--dark-bg); color: var(--text); margin: 0; padding: 0; line-height: 1.6; text-align: center; }
+        header { padding: 80px 20px; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1000'); background-size: cover; background-position: center; }
+        h1 { color: var(--primary); font-size: 3rem; margin: 0; text-transform: uppercase; }
+        .subtitle { font-size: 1.2rem; margin: 10px auto 30px; max-width: 700px; opacity: 0.9; }
+        .container { max-width: 1100px; margin: -40px auto 40px; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: var(--card-bg); padding: 30px 20px; border-radius: 15px; border-bottom: 5px solid var(--primary); }
+        .card i { color: var(--primary); font-size: 2.5rem; margin-bottom: 15px; }
+        .btn-group { margin: 20px 0; }
+        .btn { display: inline-flex; align-items: center; gap: 10px; background: var(--primary); color: black; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 50px; margin: 10px; transition: 0.3s; }
+        .btn-whatsapp { background: #25d366; color: white; }
+        .info-section { padding: 50px 20px; }
+        footer { padding: 30px; opacity: 0.5; font-size: 0.8rem; border-top: 1px solid #333; }
     </style>
 </head>
 <body>
-    <h1>FixVolt</h1>
-    <p>Profesjonalna naprawa inwerterów i elektroniki mocy we Wrocławiu.</p>
-    <p>Strona w budowie. Zapraszamy wkrótce!</p>
-    <a href="tel:+48123456789" class="btn">ZADZWOŃ DO NAS</a>
+    <header>
+        <h1>FixVolt</h1>
+        <p class="subtitle">Profesjonalna naprawa inwerterów, stacji zasilania i Webasto we Wrocławiu</p>
+        <div class="btn-group">
+            <a href="tel:+48512792248" class="btn"><i class="fas fa-phone"></i> +48 512 792 248</a>
+            <a href="https://wa.me/48512792248" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="grid">
+            <div class="card"><i class="fas fa-solar-panel"></i><h3>Inwertery</h3><p>Serwis inwerterów solarnych i hybrydowych.</p></div>
+            <div class="card"><i class="fas fa-battery-full"></i><h3>Stacje energii</h3><p>Naprawa EcoFlow, Bluetti i systemów UPS.</p></div>
+            <div class="card"><i class="fas fa-fire"></i><h3>Webasto</h3><p>Diagnostyka i naprawa ogrzewania postojowego.</p></div>
+        </div>
+    </div>
+    <section class="info-section">
+        <h2>Szybka diagnoza i gwarancja</h2>
+        <p><i class="fas fa-location-dot" style="color: var(--primary);"></i> Wrocław, Polska</p>
+    </section>
+    <footer>&copy; 2026 FixVolt Wrocław.</footer>
 </body>
 </html>
