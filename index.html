@@ -3,92 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FixVolt Wrocław - Profesjonalny serwis inwerterów solarnych, stacji zasilania EcoFlow/Bluetti i Webasto. Gwiaździsta 55.">
-    <title>FixVolt - Naprawa Elektroniki Mocy Wrocław</title>
+    <title>FixVolt Wrocław | Naprawa Inwerterów i EcoFlow</title>
+    <meta name="description" content="Profesjonalna naprawa inwerterów solarnych, stacji zasilania EcoFlow i Webasto we Wrocławiu. Gwiaździsta 55. Darmowa diagnoza!">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        :root { --primary: #f39c12; --primary-dark: #d68910; --dark-bg: #0f0f0f; --card-bg: #1a1a1a; --text: #ffffff; }
-        
-        * { box-sizing: border-box; }
-        body { font-family: 'Roboto', sans-serif; background-color: var(--dark-bg); color: var(--text); margin: 0; padding: 0; line-height: 1.6; }
-        
-        header { padding: 80px 20px; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1558444479-c8a51bc9d46d?q=80&w=1000'); background-size: cover; background-position: center; text-align: center; border-bottom: 3px solid var(--primary); }
-        
-        h1 { font-family: 'Orbitron', sans-serif; color: var(--primary); font-size: 3.5rem; margin: 0; letter-spacing: 2px; }
-        .subtitle { font-size: 1.2rem; margin: 15px auto 35px; max-width: 800px; color: #ccc; }
-        
-        .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 20px; }
-        .btn { display: inline-flex; align-items: center; gap: 10px; background: var(--primary); color: #000; padding: 16px 30px; text-decoration: none; font-weight: bold; border-radius: 8px; transition: all 0.3s ease; border: none; cursor: pointer; }
-        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4); }
-        .btn-whatsapp { background: #25d366; color: white; }
-        .btn-whatsapp:hover { background: #128c7e; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4); }
-        .btn-map { background: #3498db; color: white; }
-        
-        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .card { background: var(--card-bg); padding: 40px 25px; border-radius: 12px; border-top: 4px solid var(--primary); text-align: center; transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); background: #222; }
-        .card i { color: var(--primary); font-size: 3rem; margin-bottom: 20px; }
-        .card h3 { font-size: 1.5rem; margin-bottom: 15px; font-family: 'Orbitron', sans-serif; }
-        
-        .map-section { margin-top: 50px; border-radius: 15px; overflow: hidden; border: 2px solid var(--card-bg); }
-        .info-footer { background: var(--card-bg); padding: 40px 20px; text-align: center; margin-top: 50px; border-top: 1px solid #333; }
-        
-        footer { padding: 20px; text-align: center; font-size: 0.8rem; color: #666; }
+        :root { --primary: #f39c12; --dark: #0f0f0f; --card: #1a1a1a; --white: #ffffff; }
+        body { font-family: 'Roboto', sans-serif; background: var(--dark); color: var(--white); margin: 0; padding: 0; }
+        header { padding: 60px 20px; text-align: center; border-bottom: 3px solid var(--primary); background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1620283085439-39620a1e21c4?auto=format&fit=crop&q=80&w=1000'); background-size: cover; }
+        h1 { font-family: 'Orbitron', sans-serif; color: var(--primary); font-size: 3rem; margin: 0; }
+        .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
+        .btn { padding: 15px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.3s; display: flex; align-items: center; gap: 10px; }
+        .btn-main { background: var(--primary); color: #000; }
+        .btn-wa { background: #25d366; color: #fff; }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: var(--card); padding: 30px; border-radius: 10px; text-align: center; border: 1px solid #333; }
+        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+        .map-box { margin-top: 40px; height: 400px; border-radius: 10px; overflow: hidden; border: 2px solid var(--primary); }
+        footer { background: var(--card); padding: 40px; text-align: center; margin-top: 50px; }
     </style>
 </head>
 <body>
-
     <header>
         <h1>FIXVOLT</h1>
-        <p class="subtitle">Specjalistyczny serwis inwerterów solarnych, stacji zasilania i elektroniki przemysłowej we Wrocławiu</p>
+        <p>Ekspercka naprawa elektroniki mocy we Wrocławiu</p>
         <div class="btn-group">
-            <a href="tel:+48512792248" class="btn"><i class="fas fa-phone"></i> +48 512 792 248</a>
-            <a href="https://wa.me/48512792248" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Gwiaździsta+55,+Wrocław" target="_blank" class="btn btn-map"><i class="fas fa-location-dot"></i> Nawiguj do nas</a>
+            <a href="tel:+48512792248" class="btn btn-main"><i class="fas fa-phone"></i> +48 512 792 248</a>
+            <a href="https://wa.me/48512792248" class="btn btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
     </header>
 
-    <div class="container">
+    <main class="container">
         <div class="grid">
-            <div class="card">
+            <section class="card">
                 <i class="fas fa-solar-panel"></i>
-                <h3>Inwertery</h3>
-                <p>Naprawa serwisowa inwerterów on-grid, off-grid oraz hybrydowych wszystkich marek.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-charging-station"></i>
-                <h3>Stacje Energii</h3>
-                <p>Serwis przenośnych stacji zasilania EcoFlow, Bluetti, Jackery oraz systemów UPS.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-truck-monster"></i>
-                <h3>Webasto</h3>
-                <p>Profesjonalna diagnostyka и naprawa systemów ogrzewania postojowego.</p>
-            </div>
+                <h2>Inwertery</h2>
+                <p>Serwis inwerterów hybrydowych и solarnych. Szybka diagnoza.</p>
+            </section>
+            <section class="card">
+                <i class="fas fa-battery-full"></i>
+                <h2>EcoFlow / Bluetti</h2>
+                <p>Naprawa przenośnych stacji zasilania i banków energii.</p>
+            </section>
+            <section class="card">
+                <i class="fas fa-fire"></i>
+                <h2>Webasto</h2>
+                <p>Serwis ogrzewania postojowego. Części i diagnostyka.</p>
+            </section>
         </div>
 
-        <div class="map-section">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m17!1m3!1d1183.1!2d17.0205!3d51.10!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1zGwiaździsta%2055%2C%2053-110%20Wrocław!5e0!3m2!1spl!2spl!4v1700000000000" 
-                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
-            </iframe>
+        <div class="map-box">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1m12!1m3!1d2505.4646700000003!2d17.0210!3d51.1000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fe9cb70000001%3A0x0!2zR3dpYcW6ZHppc3RhIDU1LCA1My0xMTAgV3JvY8WCYXc!5e0!3m2!1spl!2spl!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
-    </div>
-
-    <div class="info-footer">
-        <h2>Kontakt i Lokalizacja</h2>
-        <p><i class="fas fa-map-marker-alt" style="color:var(--primary)"></i> ul. Gwiaździsta 55, 53-110 Wrocław</p>
-        <p><i class="fas fa-clock" style="color:var(--primary)"></i> Poniedziałek - Piątek: Zapraszamy do kontaktu telefonicznego</p>
-        <p><strong>Bezpłatna diagnoza i szybki czas naprawy!</strong></p>
-    </div>
+    </main>
 
     <footer>
-        &copy; 2026 FixVolt Wrocław. Wszelkie prawa zastrzeżone.
+        <p><strong>FixVolt Wrocław</strong> | ul. Gwiaździsta 55, 53-110 Wrocław</p>
+        <p>© 2026 Profesjonalny Serwis Elektroniki</p>
     </footer>
-
 </body>
 </html>
