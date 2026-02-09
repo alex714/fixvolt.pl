@@ -3,232 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIXVOLT | Quantum Electronics Lab</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <title>FIXVOLT | Quantum Engineering Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #ff5f00;
-            --bg: #030303;
-            --surface: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.08);
+            --secondary: #00e6e6; /* Aqua for glitch/subtle accents */
+            --bg: #000000;
+            --surface: rgba(255, 255, 255, 0.04);
+            --border: rgba(255, 255, 255, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             background: var(--bg); 
-            color: #fff; 
-            font-family: 'Outfit', sans-serif; 
+            color: #e0e0e0; 
+            font-family: 'Orbitron', sans-serif; 
             overflow-x: hidden;
-            line-height: 1.4;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="rgb(255,95,0)" d="M12 0l-6 10h12l-6-10zM12 24l6-10h-12l6 10z"/><path fill="rgb(0,230,230)" d="M0 12l10-6v12l-10-6zM24 12l-10-6v12l10-6z"/></svg>') 12 12, auto;
         }
 
-        /* Анимированный фон с частицами */
-        #canvas-bg {
+        /* 3D Core Canvas */
+        #three-canvas {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; opacity: 0.4;
+            z-index: -1;
+            opacity: 0.3;
+            pointer-events: none;
         }
 
-        .container { max-width: 1300px; margin: 0 auto; padding: 0 50px; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 60px; }
 
-        /* Навигация с эффектом Blur */
+        /* Navigation */
         nav {
-            position: sticky; top: 0; z-index: 100;
+            position: sticky; top: 0; z-index: 1000;
             display: flex; justify-content: space-between; align-items: center;
-            padding: 25px 0; backdrop-filter: blur(10px);
+            padding: 30px 0; backdrop-filter: blur(15px); background: rgba(0,0,0,0.4);
+            border-bottom: 1px solid var(--border);
+            text-transform: uppercase;
         }
-        .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: -1px; text-transform: uppercase; }
-        .logo span { color: var(--primary); text-shadow: 0 0 15px var(--primary); }
+        .logo { font-weight: 900; font-size: 1.8rem; letter-spacing: 0.1em; color: var(--primary); text-shadow: 0 0 10px var(--primary); }
+        .nav-link { font-family: 'Share Tech Mono', monospace; color: var(--secondary); text-decoration: none; margin-left: 30px; transition: color 0.3s, text-shadow 0.3s; }
+        .nav-link:hover { color: #fff; text-shadow: 0 0 5px var(--secondary); }
 
-        /* Hero с огромным текстом */
-        .hero { padding: 150px 0 100px; }
+        /* Hero Section */
+        .hero { padding: 180px 0 120px; text-align: left; }
         .hero h1 { 
-            font-size: clamp(4rem, 15vw, 10rem); font-weight: 900; 
-            line-height: 0.8; letter-spacing: -0.05em; margin-bottom: 40px;
-            background: linear-gradient(to bottom, #fff 40%, #444 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-size: clamp(5rem, 16vw, 12rem); font-weight: 900; 
+            line-height: 0.85; letter-spacing: -0.04em; margin-bottom: 30px;
+            text-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary);
+            animation: glitch-text 0.8s infinite alternate;
+        }
+        @keyframes glitch-text {
+            0% { transform: translate(0); text-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary); }
+            20% { transform: translate(-2px, 2px); text-shadow: 0 0 22px var(--primary), 0 0 42px var(--secondary); }
+            40% { transform: translate(-2px, -2px); text-shadow: 0 0 18px var(--secondary), 0 0 38px var(--primary); }
+            60% { transform: translate(3px, 0); text-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary); }
+            80% { transform: translate(2px, -3px); text-shadow: 0 0 25px var(--primary), 0 0 45px var(--secondary); }
+            100% { transform: translate(0); text-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary); }
         }
 
-        /* Сетка будущего */
-        .grid { 
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; 
-            background: var(--border); border: 1px solid var(--border);
-            margin-bottom: 100px;
+        .hero p { font-family: 'Share Tech Mono', monospace; font-size: 1.3rem; color: var(--secondary); max-width: 800px; line-height: 1.5; }
+
+        /* Service Grid */
+        .service-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px; margin-bottom: 150px;
         }
-        .card { 
-            background: var(--bg); padding: 60px 40px; 
-            transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        .service-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 20px; padding: 50px; backdrop-filter: blur(10px);
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative; overflow: hidden;
         }
-        .card:hover { background: #080808; padding-left: 50px; }
-        .card:hover h3 { color: var(--primary); transform: translateX(10px); }
-        .card h3 { 
-            font-size: 1.8rem; margin-bottom: 20px; transition: 0.4s; 
-            display: flex; align-items: center; gap: 10px;
+        .service-card::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,95,0,0.1) 0%, transparent 70%);
+            transform: rotate(45deg); opacity: 0; transition: opacity 0.5s, transform 0.5s;
         }
-        .card p { color: #666; font-size: 1.1rem; font-weight: 300; }
-
-        /* AI Neural Terminal */
-        .ai-wrap {
-            margin-bottom: 150px; position: relative;
-            background: #000; border: 1px solid var(--border);
-            border-radius: 40px; padding: 80px; overflow: hidden;
+        .service-card:hover { 
+            border-color: var(--primary); box-shadow: 0 0 30px var(--primary);
+            transform: translateY(-15px);
         }
-        .ai-inner { position: relative; z-index: 2; max-width: 700px; }
-        .mono { font-family: 'JetBrains Mono', monospace; color: var(--primary); font-size: 0.8rem; margin-bottom: 20px; display: block; }
-        #ai-text { font-size: 2.2rem; font-weight: 400; min-height: 120px; margin-bottom: 50px; letter-spacing: -1px; }
+        .service-card:hover::before { opacity: 1; transform: rotate(0deg); }
+        .service-card h3 { font-size: 2.2rem; margin-bottom: 15px; color: #fff; text-shadow: 0 0 5px var(--primary); }
+        .service-card p { font-family: 'Share Tech Mono', monospace; color: #aaa; }
 
-        .input-group { 
-            display: flex; gap: 20px; border-bottom: 2px solid #222; padding-bottom: 10px;
-            transition: 0.3s;
-        }
-        .input-group:focus-within { border-color: var(--primary); }
-        input { 
-            flex: 1; background: transparent; border: none; outline: none; 
-            color: #fff; font-size: 1.5rem; font-family: inherit;
-        }
-        .send-btn { 
-            background: none; border: none; color: var(--primary); 
-            font-weight: 900; cursor: pointer; font-size: 1.2rem;
-        }
-
-        footer { 
-            padding-bottom: 100px; display: flex; justify-content: space-between;
-            color: #333; font-size: 0.8rem; letter-spacing: 2px;
-        }
-
-        @media (max-width: 900px) {
-            .grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 5rem; }
-            .ai-wrap { padding: 40px 20px; }
-        }
-    </style>
-</head>
-<body>
-
-<canvas id="canvas-bg"></canvas>
-
-<div class="container">
-    <nav>
-        <div class="logo">FIX<span>VOLT</span></div>
-        <div class="mono">// LAB_01_WRO</div>
-    </nav>
-
-    <header class="hero">
-        <h1>REBUILDING<br>THE CORE<span>.</span></h1>
-    </header>
-
-    <div class="grid">
-        <div class="card">
-            <h3><span>01</span> Automatyka</h3>
-            <p>Naprawa sterowników przemysłowych и modułów kotłów gazowych klasy premium.</p>
-        </div>
-        <div class="card">
-            <h3><span>02</span> Power</h3>
-            <p>Serwis inwerterów solarnych и systemów zasilania awaryjnego UPS / BMS.</p>
-        </div>
-        <div class="card">
-            <h3><span>03</span> Vision</h3>
-            <p>Mikroskopowa diagnostyka termiczna и inżynieria odwrotna układów scalonych.</p>
-        </div>
-    </div>
-
-    <section class="ai-wrap">
-        <div class="ai-inner">
-            <span class="mono">> SYSTEM_DIAGNOSTIC_BOT_READY</span>
-            <div id="ai-text">Wprowadź parametry błędu...</div>
-            <div class="input-group">
-                <input type="text" id="ai-input" placeholder="Wpisz kod (np. F4, E01, Inverter Error)">
-                <button class="send-btn" onclick="startAI()">GO</button>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div>FIXVOLT.PL // 2026</div>
-        <div>WROCŁAW / POLSKA / EARTH</div>
-    </footer>
-</div>
-
-<script>
-    // Canvas Particles (Background)
-    const canvas = document.getElementById('canvas-bg');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-
-    function initCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-
-    class Particle {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2;
-            this.speedX = Math.random() * 0.5 - 0.25;
-            this.speedY = Math.random() * 0.5 - 0.25;
-        }
-        update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-            if (this.x > canvas.width) this.x = 0;
-            if (this.x < 0) this.x = canvas.width;
-            if (this.y > canvas.height) this.y = 0;
-            if (this.y < 0) this.y = canvas.height;
-        }
-        draw() {
-            ctx.fillStyle = 'rgba(255, 95, 0, 0.5)';
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
-    }
-
-    function createParticles() {
-        for (let i = 0; i < 100; i++) particles.push(new Particle());
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => { p.update(); p.draw(); });
-        requestAnimationFrame(animate);
-    }
-
-    initCanvas();
-    createParticles();
-    animate();
-    window.addEventListener('resize', initCanvas);
-
-    // AI Logic
-    const db = {
-        "f4": "Krytyczny błąd zapłonu. Analiza: uszkodzenie transformatora lub przekaźnika. Naprawa: Możliwa w 24h.",
-        "e01": "Błąd jonizacji. Wymagana regeneracja ścieżki sygnałowej na płycie głównej. Status: Naprawialne.",
-        "f28": "Błąd komunikacji zaworu gazowego. Problem w sekcji sterowania niskonapięciowego. Status: Lab-Repair.",
-        "inverter": "Przeciążenie modułu mocy IGBT. Wymagana wymiana tranzystorów i driverów sterujących. Status: Priority."
-    };
-
-    function startAI() {
-        const input = document.getElementById('ai-input');
-        const text = document.getElementById('ai-text');
-        const val = input.value.toLowerCase();
-        
-        text.style.color = "#444";
-        text.innerText = "Processing Neural Data...";
-        
-        setTimeout(() => {
-            let result = "Baza danych nie zawiera tego błędu. Wymagana manualna diagnoza inżyniera we Wrocławiu. Tel: +48 XXX XXX XXX.";
-            for(let key in db) { if(val.includes(key)) result = db[key]; }
-            
-            text.style.color = "#fff";
-            text.innerText = "";
-            let i = 0;
-            const typing = setInterval(() => {
-                text.innerText += result[i];
-                i++;
-                if(i >= result.length) clearInterval(typing);
-            }, 20);
-        }, 1000);
-    }
-</script>
-
-</body>
-</html>
+        /* AI Terminal */
+        .ai-terminal {
+            background: #000; border: 2px solid var(--secondary);
+            border-radius: 30px; padding: 80px; margin-bottom: 150px;
+            box-shadow: 0 0 50px var(--secondary), inset 0 0
