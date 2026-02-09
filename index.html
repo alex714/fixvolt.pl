@@ -3,77 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FixVolt Wrocław | Serwis Falowników i MacBook M1/M2/M3</title>
+    <title>FixVolt Wrocław | Kompleksowy Serwis Elektroniki | 519 842 792</title>
+    <meta name="description" content="FixVolt Wrocław - Naprawa sterowników ECU, inwerterów PV, MacBooków, AGD i zabawek. Ponad 20 lat doświadczenia. Dla nas nie ma rzeczy niemożliwych.">
     <style>
-        :root { --gold: #ffcc00; --dark: #0f0f0f; --card: #1a1a1a; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--dark); color: #fff; text-align: center; }
-        .hero { padding: 60px 20px; border-bottom: 3px solid var(--gold); background: radial-gradient(circle, #222 0%, #000 100%); }
-        .hero h1 { font-size: 38px; margin: 0; letter-spacing: -1px; }
-        .gold { color: var(--gold); text-transform: uppercase; font-weight: 900; letter-spacing: 2px; }
-        .container { max-width: 1100px; margin: -40px auto 0; padding: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
-        .card { background: var(--card); padding: 35px; border-radius: 20px; border: 1px solid #333; transition: 0.3s; text-align: left; }
+        :root { --gold: #ffcc00; --dark: #0a0a0a; --card: #151515; --gray: #888; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; background: var(--dark); color: #fff; line-height: 1.6; }
+        
+        .hero { padding: 80px 20px; border-bottom: 4px solid var(--gold); background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center; text-align: center; }
+        .gold-tag { color: var(--gold); text-transform: uppercase; font-weight: 900; letter-spacing: 3px; font-size: 14px; margin-bottom: 10px; display: block; }
+        .hero h1 { font-size: clamp(26px, 5vw, 42px); margin: 10px 0; letter-spacing: -1px; line-height: 1.2; }
+        
+        .container { max-width: 1200px; margin: -50px auto 0; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        
+        .card { background: var(--card); padding: 30px; border-radius: 15px; border: 1px solid #222; transition: 0.3s; position: relative; }
         .card:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .card h2 { color: var(--gold); margin-top: 0; font-size: 24px; }
-        .card ul { padding: 0; list-style: none; color: #bbb; }
-        .card li::before { content: '→ '; color: var(--gold); font-weight: bold; }
-        .cta { margin-top: 40px; background: var(--gold); color: #000; padding: 40px; border-radius: 25px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-        .btn-call { display: inline-block; background: #000; color: var(--gold); padding: 20px 50px; border-radius: 50px; font-size: 30px; font-weight: 900; text-decoration: none; transition: 0.3s; }
-        .btn-call:hover { transform: scale(1.05); }
-        .wa { display: block; margin-top: 20px; color: #000; font-weight: bold; text-decoration: none; font-size: 18px; }
-        .brands { margin-top: 40px; opacity: 0.3; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; font-size: 12px; font-weight: bold; }
-        .sticky { position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; background: var(--gold); color: #000; padding: 15px; border-radius: 50px; font-weight: 900; text-decoration: none; z-index: 999; box-shadow: 0 10px 30px rgba(0,0,0,0.5); display: none; }
-        @media (max-width: 768px) { .sticky { display: block; } .hero h1 { font-size: 28px; } .container { margin-top: 20px; } }
+        .card h2 { color: var(--gold); margin-top: 0; font-size: 20px; text-transform: uppercase; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .card ul { padding: 0; list-style: none; margin-top: 15px; }
+        .card li { margin-bottom: 10px; display: flex; align-items: flex-start; color: #ddd; font-size: 15px; }
+        .card li::before { content: '→'; color: var(--gold); margin-right: 10px; font-weight: bold; }
+        
+        .cta-box { margin-top: 50px; background: var(--gold); color: #000; padding: 45px 20px; border-radius: 25px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .btn-main { display: inline-block; background: #000; color: var(--gold); padding: 18px 40px; border-radius: 50px; font-size: 26px; font-weight: 900; text-decoration: none; transition: 0.3s; margin: 10px; }
+        .btn-main:hover { transform: scale(1.05); }
+        
+        .sticky-bar { position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--gold); color: #000; padding: 15px; border-radius: 50px; font-weight: 900; text-decoration: none; text-align: center; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); display: none; }
+        
+        @media (max-width: 768px) { .sticky-bar { display: block; } .hero { padding: 50px 20px; } .container { margin-top: 20px; } }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <div class="gold">FixVolt Wrocław</div>
-        <h1>EKSPERT SERWIS ELEKTRONIKI</h1>
-        <p style="opacity: 0.7;">Naprawa Inwerterów PV • Serwis Apple • Automatyka</p>
-    </div>
+
+    <section class="hero">
+        <span class="gold-tag">FixVolt Wrocław</span>
+        <h1>NIE WYRZUCAJ — NAPRAWIMY TO.</h1>
+        <p>Od sterownika koparki po ulubioną zabawkę Twojego dziecka. <br>Ratujemy każdą elektronikę z pasją i precyzją.</p>
+    </section>
+
     <div class="container">
         <div class="grid">
             <div class="card">
-                <h2>Inwertery Fotowoltaiczne</h2>
-                <p>Naprawiamy: <b>Huawei (SUN2000)</b>, <b>Fronius</b>, <b>SolarEdge</b>, <b>Sofar</b>.</p>
+                <h2>Elektronika Auto</h2>
                 <ul>
-                    <li>Usuwanie błędów izolacji (ISO)</li>
-                    <li>Naprawa modułów mocy и komunikacji</li>
-                    <li>Serwis po przepięciach и burzach</li>
+                    <li>Sterowniki silnika (ECU), ABS, Airbag</li>
+                    <li>Klonowanie i programowanie modułów</li>
+                    <li>Elektronika pojazdów Hybrid / EV</li>
                 </ul>
             </div>
+
             <div class="card">
-                <h2>Apple & Laptopy</h2>
-                <p>Specjalizacja: <b>MacBook Pro / Air (M1, M2, M3)</b>.</p>
+                <h2>OZE i Przemysł</h2>
                 <ul>
-                    <li>Naprawa płyt głównych po zalaniu</li>
-                    <li>Wymiana układów BGA / SMC / T2</li>
-                    <li>Odzyskiwanie danych и szybki serwis</li>
+                    <li>Inwertery PV (Huawei, Fronius, Sofar)</li>
+                    <li>Sterowniki maszyn i falowniki</li>
+                    <li>Systemy zasilania awaryjnego UPS</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>MacBook & IT</h2>
+                <ul>
+                    <li>Naprawa płyt głównych MacBook M1/M2/M3</li>
+                    <li>Odzyskiwanie danych (SSD, Pendrive)</li>
+                    <li>Zaawansowany serwis laptopów</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Dom & Hobby</h2>
+                <ul>
+                    <li>Elektronika AGD (ekspresy, roboty, AGD)</li>
+                    <li><b>Zabawki interaktywne i drony</b></li>
+                    <li>Sprzęt Audio, Vintage i niestandardowy</li>
                 </ul>
             </div>
         </div>
-        <div class="cta">
-            <h2 style="margin-top:0;">POTRZEBUJESZ NAPRAWY?</h2>
-            <a href="tel:512792248" class="btn-call">📞 512 792 248</a>
-            <a href="https://wa.me/48512792248" class="wa">Wyślij zdjęcie usterki przez WhatsApp →</a>
-            <p style="margin-bottom:0; font-size:14px; margin-top:15px;">📍 Wrocław • Diagnoza 24h • Gwarancja • Faktura VAT</p>
-        </div>
-        <div class="brands">
-            <span>HUAWEI</span><span>FRONIUS</span><span>APPLE</span><span>SOLAREDGE</span><span>VIESSMANN</span><span>MACBOOK</span>
+
+        <div class="cta-box">
+            <h2 style="margin:0 0 20px 0;">MASZ COŚ DO NAPRAWY?</h2>
+            <a href="tel:+48519842792" class="btn-main">📞 519 842 792</a>
+            <p style="font-weight:bold; margin-top:15px;">📍 Wrocław • Szybka diagnoza • Solidny serwis</p>
+            <a href="https://wa.me/48519842792" style="color:#000; text-decoration:none; font-size:14px;">Kliknij tutaj, aby napisać na WhatsApp</a>
         </div>
     </div>
-    <a href="tel:512792248" class="sticky">📞 ZADZWOŃ TERAZ</a>
-    <footer style="padding:40px; opacity:0.2; font-size:10px;">FixVolt Wrocław - Profesjonalna Naprawa Elektroniki 2026</footer>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "RepairService",
-      "name": "FixVolt Wrocław",
-      "telephone": "+48512792248",
-      "address": { "@type": "PostalAddress", "addressLocality": "Wrocław", "countryCode": "PL" },
-      "description": "Specjalistyczny serwis inwerterów PV i MacBooków we Wrocławiu."
-    }
-    </script>
+
+    <a href="tel:+48519842792" class="sticky-bar">📞 ZADZWOŃ: 519 842 792</a>
+
+    <footer style="text-align:center; padding:40px; color:#444; font-size:11px;">
+        &copy; 2026 FixVolt Wrocław. Naprawa elektroniki bez granic.
+    </footer>
 </body>
 </html>
