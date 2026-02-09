@@ -3,168 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIXVOLT | Digital Administrative Core</title>
+    <title>FIXVOLT | Specjalistyczny Serwis Elektroniki Wrocław | Inwertery & HVAC</title>
+    <meta name="description" content="Profesjonalna naprawa elektroniki przemysłowej, inwerterów fotowoltaicznych i płyt kotłów gazowych we Wrocławiu. Wykorzystujemy globalną bazę danych 300M+ rozwiązań.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #ff5f00;
-            --bg: #0c0c0c;
-            --panel: #141414;
-            --text: #e0e0e0;
-            --border: #222;
+            --dark: #080808;
+            --panel: #111;
+            --text: #ffffff;
+            --accent-blue: #0066ff;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, sans-serif; }
-        body { background: var(--bg); color: var(--text); line-height: 1.6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--dark); color: var(--text); line-height: 1.5; overflow-x: hidden; }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
 
-        /* Navigation */
-        nav { padding: 30px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.4rem; font-weight: 900; letter-spacing: -1px; text-transform: uppercase; color: #fff; text-decoration: none; }
+        /* HEADER & NAVIGATION */
+        nav { padding: 25px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; position: sticky; top: 0; background: rgba(8,8,8,0.9); backdrop-filter: blur(10px); z-index: 100; }
+        .logo { font-size: 1.6rem; font-weight: 900; letter-spacing: -1.5px; text-transform: uppercase; color: #fff; text-decoration: none; }
         .logo span { color: var(--primary); }
-        .system-status { font-family: monospace; font-size: 0.7rem; color: #555; }
+        .nav-phone { background: var(--primary); color: #000; padding: 10px 20px; border-radius: 5px; font-weight: 900; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .nav-phone:hover { background: #fff; }
 
-        /* AI Admin Section */
-        .admin-wrap {
-            display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; margin: 60px 0; min-height: 550px;
+        /* HERO SECTION */
+        .hero { padding: 100px 0 60px; text-align: center; border-bottom: 1px solid #222; position: relative; }
+        .hero h1 { font-size: clamp(3rem, 10vw, 6.5rem); font-weight: 900; line-height: 0.85; letter-spacing: -4px; margin-bottom: 30px; }
+        .hero span { color: var(--primary); }
+        .hero-sub { font-size: 1.25rem; color: #888; max-width: 800px; margin: 0 auto 40px; }
+
+        /* BRANDS SCROLL */
+        .brands { padding: 30px 0; background: #000; overflow: hidden; display: flex; gap: 50px; opacity: 0.4; }
+        .brands-track { display: flex; gap: 50px; white-space: nowrap; animation: scroll 20s linear infinite; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .brand-item { font-weight: 900; font-size: 1.2rem; color: #fff; }
+
+        /* AI ADMIN INTERFACE */
+        .ai-admin { margin: 80px 0; background: var(--panel); border: 1px solid #222; border-radius: 12px; overflow: hidden; display: grid; grid-template-columns: 1fr 1.5fr; }
+        .ai-sidebar { padding: 50px; background: #161616; }
+        .ai-sidebar h2 { font-size: 2rem; margin-bottom: 20px; color: var(--primary); }
+        .ai-sidebar ul { list-style: none; color: #999; }
+        .ai-sidebar li { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; }
+        .ai-sidebar li::before { content: "•"; color: var(--primary); font-size: 2rem; }
+
+        .chat-box { height: 500px; display: flex; flex-direction: column; background: #0c0c0c; }
+        .chat-messages { flex: 1; padding: 30px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
+        .m { padding: 12px 18px; border-radius: 4px; max-width: 85%; font-size: 0.95rem; }
+        .m-ai { background: #222; align-self: flex-start; border-left: 3px solid var(--primary); }
+        .m-user { background: var(--primary); color: #000; align-self: flex-end; font-weight: 600; }
+        .chat-input { padding: 20px; background: #111; display: flex; gap: 10px; border-top: 1px solid #222; }
+        .chat-input input { flex: 1; background: #000; border: 1px solid #333; padding: 15px; color: #fff; outline: none; }
+        .chat-input button { background: var(--primary); border: none; padding: 0 30px; font-weight: 900; cursor: pointer; }
+
+        /* SERVICES GRID */
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #222; margin-bottom: 100px; }
+        .card { background: var(--dark); padding: 50px 40px; }
+        .card h3 { color: var(--primary); margin-bottom: 15px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; }
+        .card p { color: #888; font-size: 1rem; }
+
+        /* FOOTER */
+        footer { padding: 60px 0; text-align: center; border-top: 1px solid #222; color: #444; font-size: 0.8rem; }
+        .footer-cta { margin-bottom: 40px; }
+        .footer-cta a { font-size: 2rem; color: #fff; text-decoration: none; font-weight: 900; }
+
+        @media (max-width: 900px) {
+            .ai-admin { grid-template-columns: 1fr; }
+            .grid { grid-template-columns: 1fr; }
         }
-
-        /* Информационная панель */
-        .admin-info { padding: 40px; background: var(--panel); border-radius: 4px; border-left: 4px solid var(--primary); }
-        .admin-info h1 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 20px; color: #fff; }
-        .admin-info p { font-size: 1rem; color: #888; margin-bottom: 25px; }
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .stat-item { background: #000; padding: 15px; border-radius: 4px; border: 1px solid var(--border); }
-        .stat-label { display: block; font-size: 0.65rem; color: var(--primary); text-transform: uppercase; margin-bottom: 5px; }
-        .stat-val { font-size: 1rem; font-weight: bold; font-family: monospace; }
-
-        /* Чат-интерфейс Администратора */
-        .chat-container {
-            background: #1a1a1a; border: 1px solid var(--border); border-radius: 4px; display: flex; flex-direction: column; overflow: hidden;
-        }
-        .chat-header { background: #222; padding: 15px 25px; font-size: 0.8rem; font-weight: bold; display: flex; justify-content: space-between; }
-        .chat-body { flex: 1; padding: 25px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; font-size: 0.95rem; }
-        
-        .msg { max-width: 85%; padding: 12px 18px; border-radius: 2px; position: relative; }
-        .msg-ai { background: #333; align-self: flex-start; border-left: 3px solid var(--primary); color: #fff; }
-        .msg-user { background: var(--primary); color: #000; align-self: flex-end; font-weight: 500; }
-
-        .chat-footer { padding: 20px; background: #141414; border-top: 1px solid var(--border); display: flex; gap: 10px; }
-        input { flex: 1; background: #000; border: 1px solid var(--border); padding: 12px 15px; color: #fff; outline: none; }
-        input:focus { border-color: var(--primary); }
-        .send-btn { background: var(--primary); border: none; padding: 0 25px; color: #000; font-weight: 900; cursor: pointer; text-transform: uppercase; font-size: 0.8rem; }
-
-        footer { padding: 40px 0; border-top: 1px solid var(--border); color: #444; font-size: 0.75rem; text-align: center; }
-
-        @media (max-width: 900px) { .admin-wrap { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <div class="container">
     <nav>
-        <a href="#" class="logo">FIX<span>VOLT</span>.ADMIN</a>
-        <div class="system-status">LAB_WROC_51.10 // SECURE_NODE_ACTIVE</div>
+        <a href="/" class="logo">FIX<span>VOLT</span></a>
+        <a href="tel:+48512792248" class="nav-phone">+48 512 792 248</a>
     </nav>
 
-    <div class="admin-wrap">
-        <aside class="admin-info">
-            <h1>Expert Support Center</h1>
-            <p>Nasz cyfrowy administrator analizuje usterki w oparciu o globalne bazy danych (300M+ wpisów) i przygotowuje proces przyjęcia sprzętu do laboratorium.</p>
-            
-            <div class="stats-grid">
-                <div class="stat-item"><span class="stat-label">Baza Wiedzy</span><span class="stat-val">ZINTEGROWANA</span></div>
-                <div class="stat-item"><span class="stat-label">Czas Reakcji</span><span class="stat-val">NATYCHMIAST</span></div>
-                <div class="stat-item"><span class="stat-label">Lokalizacja</span><span class="stat-val">WROCŁAW</span></div>
-                <div class="stat-item"><span class="stat-label">Poziom Lab</span><span class="stat-val">LEVEL 3</span></div>
-            </div>
-        </aside>
+    <header class="hero">
+        <h1>NAPRAWA<br>ELEKTRONIKI<span>.</span></h1>
+        <p class="hero-sub">Lider serwisu inwerterów fotowoltaicznych, automatyki HVAC i systemów przemysłowych we Wrocławiu. Wykorzystujemy globalną bazę 300 mln rozwiązań.</p>
+    </header>
 
-        <section class="chat-container">
-            <div class="chat-header">
-                <span>FIXVOLT AI_ADMIN v4.1</span>
-                <span style="color: var(--primary)">● ONLINE</span>
-            </div>
-            <div class="chat-body" id="chat-box">
-                <div class="msg msg-ai">Dzień dobry. Jestem administratorem technicznym Fixvolt. W czym mogę pomóc? Podaj model urządzenia lub kod błędu.</div>
-            </div>
-            <div class="chat-footer">
-                <input type="text" id="user-input" placeholder="Wpisz wiadomość..." autocomplete="off">
-                <button class="send-btn" onclick="handleInput()">Wyślij</button>
-            </div>
-        </section>
+    <div class="brands">
+        <div class="brands-track">
+            <div class="brand-item">VIESSMANN</div>
+            <div class="brand-item">VAILLANT</div>
+            <div class="brand-item">FRONIUS</div>
+            <div class="brand-item">HUAWEI SOLAR</div>
+            <div class="brand-item">SUNGROW</div>
+            <div class="brand-item">BUDERUS</div>
+            <div class="brand-item">DE DIETRICH</div>
+            <div class="brand-item">DANFOSS</div>
+            <div class="brand-item">VIESSMANN</div>
+            <div class="brand-item">VAILLANT</div>
+            <div class="brand-item">FRONIUS</div>
+        </div>
     </div>
 
-    <footer>
-        &copy; 2026 FIXVOLT.PL | PRECISION ENGINEERING SOLUTIONS | WROCŁAW, POLSKA
+    <section class="ai-admin">
+        <div class="ai-sidebar">
+            <h2>AI_Admin</h2>
+            <p>Nasz system ekspercki zdiagnozuje Twój problem w 30 sekund.</p>
+            <ul>
+                <li>Baza wiedzy z 300 mln przypadków</li>
+                <li>Precyzyjna diagnoza kosztów</li>
+                <li>Rezerwacja terminu w laboratorium</li>
+            </ul>
+        </div>
+        <div class="chat-box">
+            <div class="chat-messages" id="chat">
+                <div class="m m-ai">Dzień dobry! Jestem administratorem technicznym Fixvolt. Podaj kod błędu lub opisz problem ze sprzętem.</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-msg" placeholder="np. Viessmann F4, Inwerter błąd 103..." autocomplete="off">
+                <button onclick="send()">START</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="grid">
+        <div class="card">
+            <h3>01. Energetyka PV</h3>
+            <p>Naprawa inwerterów solarnych, systemów BMS i magazynów energii. Wymiana modułów mocy IGBT.</p>
+        </div>
+        <div class="card">
+            <h3>02. Automatyka HVAC</h3>
+            <p>Ekspercki serwis płyt głównych kotłów gazowych i pomp ciepła. Diagnostyka procesorów.</p>
+        </div>
+        <div class="card">
+            <h3>03. Lab L3 Precision</h3>
+            <p>Mikrolutowanie, reballing BGA, regeneracja ścieżek wielowarstwowych pod mikroskopem.</p>
+        </div>
+    </div>
+
+    <footer class="footer-cta">
+        <p style="margin-bottom: 10px;">Masz nagłą awarię? Dzwoń teraz:</p>
+        <a href="tel:+48512792248">+48 512 792 248</a>
+        <div style="margin-top: 40px;">&copy; 2026 FIXVOLT.PL | WROCŁAW, POLSKA</div>
     </footer>
 </div>
 
 <script>
-    const chatBox = document.getElementById('chat-box');
-    const userInput = document.getElementById('user-input');
+    const chat = document.getElementById('chat');
+    const input = document.getElementById('user-msg');
+    let step = 0;
 
-    let step = 0; 
-    let orderData = { device: "", problem: "", contact: "" };
-
-    const knowledgeBase = {
-        "f4": "Analiza wskazuje na błąd zapłonu Viessmann (częsta usterka przekaźnika). Naprawa w naszym lab trwa zazwyczaj 1 dzień roboczy.",
-        "f28": "Błąd komunikacji Vaillant. Statystyki z baz globalnych sugerują uszkodzenie sekcji zasilania logiki. Możemy to naprawić od ręki.",
-        "inwerter": "Problem z inwerterem. Nasze dane wskazują na usterkę modułu mocy IGBT. Wymagana diagnoza stacjonarna we Wrocławiu.",
-        "e01": "Błąd jonizacji. Wymagana weryfikacja obwodu pomiarowego na płycie głównej."
+    const db = {
+        "f4": "DIAGNOZA: Błąd zapłonu. Analiza danych wskazuje na uszkodzenie przekaźnika zaworu lub modułu zapłonowego. Naprawa: 24h.",
+        "f28": "DIAGNOZA: Błąd komunikacji gazowej. Statystyki sugerują utratę pojemności kondensatorów logiki. Możliwa naprawa od ręki.",
+        "103": "DIAGNOZA: Inwerter - błąd stopnia mocy. Wymagana wymiana tranzystorów IGBT. Posiadamy części na magazynie.",
+        "bms": "DIAGNOZA: Uszkodzenie układu balansującego. Możliwa naprawa bez wymiany całego akumulatora."
     };
 
-    function addMessage(text, isAi = true) {
-        const div = document.createElement('div');
-        div.className = `msg ${isAi ? 'msg-ai' : 'msg-user'}`;
-        div.innerText = text;
-        chatBox.appendChild(div);
-        chatBox.scrollTop = chatBox.scrollHeight;
+    function addMsg(text, ai = true) {
+        const d = document.createElement('div');
+        d.className = `m ${ai ? 'm-ai' : 'm-user'}`;
+        d.innerText = text;
+        chat.appendChild(d);
+        chat.scrollTop = chat.scrollHeight;
     }
 
-    function handleInput() {
-        const text = userInput.value.trim();
-        if (!text) return;
-
-        addMessage(text, false);
-        userInput.value = "";
+    function send() {
+        const val = input.value.trim();
+        if(!val) return;
+        addMsg(val, false);
+        input.value = "";
 
         setTimeout(() => {
-            processLogic(text.toLowerCase());
-        }, 600);
-    }
-
-    function processLogic(text) {
-        if (step === 0) {
-            let found = false;
-            for (let key in knowledgeBase) {
-                if (text.includes(key)) {
-                    addMessage(knowledgeBase[key]);
-                    found = true;
-                    break;
-                }
+            if(step === 0) {
+                let found = "ANALIZA: Przyjmuję zgłoszenie do weryfikacji inżynierskiej.";
+                for(let k in db) { if(val.toLowerCase().includes(k)) found = db[k]; }
+                addMsg(found);
+                addMsg("Zostaw swój numer telefonu, a inżynier oddzwoni z wyceną w ciągu 15 minut.");
+                step = 1;
+            } else {
+                addMsg("Dziękuję! Dane przekazane do serwisu. Możesz też zadzwonić bezpośrednio: +48 512 792 248.");
+                console.log("Lead:", val);
             }
-            if (!found) addMessage("Rozumiem. Przyjmuję zgłoszenie do analizy inżynierskiej.");
-            
-            orderData.problem = text;
-            addMessage("Aby zarezerwować termin w naszym laboratorium we Wrocławiu, proszę podać model urządzenia (np. Viessmann Vitodens 100).");
-            step = 1;
-        } 
-        else if (step === 1) {
-            orderData.device = text;
-            addMessage("Przyjęto: " + text.toUpperCase() + ". Ostatni krok: proszę zostawić numer telefonu lub e-mail. Nasz inżynier skontaktuje się w ciągu 30 minut.");
-            step = 2;
-        } 
-        else if (step === 2) {
-            orderData.contact = text;
-            addMessage("Dziękuję! Dane zostały przesłane do systemu FIXVOLT CORE. Numer zgłoszenia: #" + Math.floor(Math.random()*9000 + 1000));
-            addMessage("Administrator zakończył zbieranie danych. Możesz teraz do nas zadzwonić bezpośrednio: +48 XXX XXX XXX.");
-            step = 3;
-            console.log("Zgłoszenie:", orderData); // Здесь можно отправить данные на почту или API
-        }
+        }, 800);
     }
-
-    userInput.addEventListener("keypress", (e) => { if (e.key === "Enter") handleInput(); });
+    input.addEventListener("keypress", (e) => { if(e.key === "Enter") send(); });
 </script>
 
 </body>
