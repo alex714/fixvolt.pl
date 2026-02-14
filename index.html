@@ -28,7 +28,8 @@
         .main-btn { background: #000; color: var(--gold); padding: 25px 60px; font-size: clamp(20px, 4vw, 32px); font-weight: 900; text-decoration: none; display: inline-block; box-shadow: 10px 10px 0px rgba(0,0,0,0.2); transition: 0.2s; border: none; cursor: pointer; }
         .main-btn:hover { transform: translate(-5px, -5px); box-shadow: 15px 15px 0px rgba(0,0,0,0.3); }
 
-        footer { padding: 40px; text-align: center; opacity: 0.4; font-size: 12px; }
+        footer { padding: 40px; text-align: center; opacity: 0.6; font-size: 14px; color: #888; border-top: 1px solid #222; }
+        .footer-info { margin-bottom: 10px; }
 
         @media (max-width: 768px) { 
             header { padding: 60px 20px; }
@@ -57,14 +58,14 @@
             </div>
             <div class="card">
                 <h3>Inżynieria Komponentowa</h3>
-                <p>Programowanie procesorów, odzyskiwanie oprogramрования (JTAG/XDS110) oraz naprawa ścieżek wysokoprądowych.</p>
+                <p>Programowanie procesorów, odzyskiwanie oprogramowania (JTAG/XDS110) oraz naprawa ścieżek wysokoprądowych.</p>
                 <div class="tech-list">
                     <span>Programowanie MCU</span> <span>Naprawa IGBT/SiC</span> <span>Rekonstrukcja PCB</span>
                 </div>
             </div>
             <div class="card">
                 <h3>Automatyka & Przemysł</h3>
-                <p>Serwis sterowników maszyn, falowników промышленный и систем управления, которых никто не хочет dotknąć.</p>
+                <p>Serwis sterowników maszyn, falowników przemysłowych и systemów sterowania, których nikt nie chce dotknąć.</p>
                 <div class="tech-list">
                     <span>PLC</span> <span>VFD</span> <span>HMI</span> <span>Zasilacze Przemysłowe</span>
                 </div>
@@ -73,7 +74,7 @@
                 <h3>High-End Automotive</h3>
                 <p>Zaawansowana diagnostyka modułów elektronicznych w pojazdach elektrycznych i hybrydowych.</p>
                 <div class="tech-list">
-                    <span>Inwertery EV</span> <span>Ładowarki pokładowe</span> <span>Moduły sterowania</span>
+                    <span>Inwertery EV</span> <span>Ładowarki pokładowe</span> <span>Moduлы sterowania</span>
                 </div>
             </div>
         </div>
@@ -86,7 +87,12 @@
     </div>
 
     <footer>
-        FIXVOLT WROCŁAW © 2026 | KONTAKT: <a href="tel:+48605697548" style="color:inherit; text-decoration:none;">605 697 548</a>
+        <div class="footer-info">
+            <strong>FIXVOLT WROCŁAW</strong><br>
+            NIP: 8951096794 | Wrocław, Polska<br>
+            Tel: <a href="tel:+48605697548" style="color: var(--gold); text-decoration: none;">605 697 548</a>
+        </div>
+        © 2026 FixVolt. Wszystkie prawa zastrzeżone.
     </footer>
 
 </body>
