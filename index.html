@@ -17,15 +17,22 @@
         
         .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .card { background: var(--accent); padding: 30px; border-left: 3px solid #333; transition: 0.3s; height: 100%; box-sizing: border-box; }
+        .card { background: var(--accent); padding: 30px; border-left: 3px solid #333; transition: 0.3s; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; }
         .card:hover { border-left-color: var(--gold); background: #0a0a0a; transform: translateX(10px); }
         .card h3 { color: var(--gold); text-transform: uppercase; margin-top: 0; font-size: 20px; }
+        .card p { flex-grow: 1; margin-bottom: 0; }
         
         .cta-section { background: var(--gold); color: #000; padding: 80px 20px; text-align: center; }
-        .btn-group { display: flex; flex-direction: column; gap: 20px; align-items: center; margin-top: 30px; }
-        .main-btn { background: #000; color: var(--gold); padding: 20px 50px; font-size: clamp(18px, 4vw, 28px); font-weight: 900; text-decoration: none; display: inline-block; box-shadow: 8px 8px 0px rgba(0,0,0,0.2); transition: 0.2s; border: none; cursor: pointer; min-width: 300px; }
-        .main-btn:hover { transform: translate(-2px, -2px); box-shadow: 12px 12px 0px rgba(0,0,0,0.3); background: #111; }
+        .btn-wrapper { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 30px; }
         
+        /* ГЛАВНАЯ КНОПКА - ПОЧТА */
+        .main-btn-mail { background: #000; color: var(--gold); padding: 25px 50px; font-size: clamp(16px, 4vw, 26px); font-weight: 900; text-decoration: none; display: inline-block; box-shadow: 10px 10px 0px rgba(0,0,0,0.2); transition: 0.2s; border: none; cursor: pointer; min-width: 320px; text-transform: uppercase; }
+        .main-btn-mail:hover { transform: translate(-3px, -3px); box-shadow: 15px 15px 0px rgba(0,0,0,0.3); background: #111; }
+
+        /* ВТОРОСТЕПЕННЫЙ ТЕЛЕФОН */
+        .sub-link-tel { color: #000; font-size: 22px; font-weight: 900; text-decoration: none; border-bottom: 3px solid #000; transition: 0.2s; margin-top: 5px; }
+        .sub-link-tel:hover { opacity: 0.7; }
+
         footer { padding: 60px 20px; text-align: center; opacity: 0.9; font-size: 14px; color: #888; border-top: 1px solid #222; background: #000; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; text-align: left; }
         .footer-item h4 { color: var(--gold); margin-bottom: 10px; text-transform: uppercase; }
@@ -57,7 +64,7 @@
         <h1 class="brand">FIXVOLT</h1>
         <div class="tagline">NAPRAWA INWERTERÓW I FALOWNIKÓW</div>
         <p style="max-width: 800px; margin: 30px auto; font-style: italic; color: #888;">
-            "Specjalistyczny serwis elektroniki mocy. Naprawiamy inwertery hybrydowe i sieciowe na poziomie komponentów. Szybka diagnoza, rzetelna naprawa i pełna gwarancja."
+            "Specjalistyczny serwis elektroniki mocy. Naprawiamy inwertery hybrydowe i sieciowe na poziomie komponentów. Szybka diagnoza i pełna gwarancja."
         </p>
     </header> 
 
@@ -65,52 +72,53 @@
         <div class="grid">
             <div class="card">
                 <h3>Serwis Komponentowy</h3>
-                <p>Wymiana modułów IGBT, tranzystorów MOSFET oraz naprawa układów sterowania. Ratujemy urządzenia po przepięciach, uderzeniach pioruna i zalaniach.</p>
+                <p>Naprawa płyt głównych, wymiana modułów IGBT и tranzystorów MOSFET. Ratujemy sprzęt po przepięciach и burzach.</p>
             </div>
             <div class="card">
-                <h3>Optymalizacja DEYE <span class="special-badge">BŁĄD F56</span></h3>
-                <p>Rozwiązujemy problemy z "Time of Use", błędami <strong>F56 (DC Bus High)</strong>, F13, BMS oraz konfiguracją przekładników CT.</p>
+                <h3>Błąd Deye F56 / F13 <span class="special-badge">HOT</span></h3>
+                <p>Specjalistyczne usuwanie błędów DC Bus High (F56) oraz Overcurrent (F13) w inwerterach hybrydowych.</p>
             </div>
             <div class="card">
                 <h3>Błędy Izolacji (ISO)</h3>
-                <p>Profesjonalne wykrywanie i naprawa błędów upływności doziemnej. Serwisujemy urządzenia marek Huawei, Sofar, Growatt, Fronius, Solis i inne.</p>
+                <p>Profesjonalne wykrywanie i naprawa błędów upływności doziemnej w urządzeniach Huawei, Sofar, Growatt i Solis.</p>
             </div>
             <div class="card">
                 <h3>Serwis Wysyłkowy</h3>
-                <p>Obsługujemy klientów z całego kraju przez <strong>Paczkomaty InPost</strong>. Możliwość wysyłki inwertera kurierem. Ekspresowa diagnoza techniczna.</p>
+                <p>Obsługa całej Polski przez <strong>Paczkomaty InPost</strong>. Ekspresowa diagnoza urządzenia w 48h od dostarczenia.</p>
             </div>
             <div class="card">
-                <h3>Gwarancja & Testy</h3>
-                <p>Każdy naprawiony sprzęt przechodzi testy pod obciążeniem. Na wykonane usługi wystawiamy pisemną gwarancję oraz fakturę VAT.</p>
+                <h3>Ekspertyzy Techniczne</h3>
+                <p>Przygotowujemy pełną dokumentację i kosztorysy napraw dla firm ubezpieczeniowych po szkodach burzowych.</p>
             </div>
             <div class="card">
-                <h3>Ekspertyzy Ubezpieczeniowe</h3>
-                <p>Przygotowujemy profesjonalną dokumentację i kosztorysy napraw dla firm ubezpieczeniowych po szkodach burzowych.</p>
+                <h3>Gwarancja Jakości</h3>
+                <p>Każdy naprawiony falownik przechodzi testy pod obciążeniem. Wystawiamy pisemną gwarancję oraz fakturę VAT.</p>
             </div>
         </div>
     </div> 
 
     <div class="cta-section">
-        <h2 style="margin: 0;">SKONTAKTUJ SIĘ Z NAMI</h2>
-        <p style="font-weight: bold; margin-top: 10px;">Masz błąd na wyświetlaczu? Wyślij zdjęcie lub zadzwoń.</p>
+        <h2 style="margin: 0; text-transform: uppercase;">Zgłoś awarię do serwisu</h2>
+        <p style="font-weight: bold; margin-top: 10px;">Wyślij zdjęcie błędu i tabliczki znamionowej (Preferowane):</p>
         
-        <div class="btn-group">
-            <a href="tel:+48605697548" class="main-btn">ZADZWOŃ: 605 697 548</a>
-            <a href="mailto:m.paprocki@onet.eu" class="main-btn" style="background: transparent; color: #000; border: 4px solid #000;">E-MAIL: m.paprocki@onet.eu</a>
+        <div class="btn-wrapper">
+            <a href="mailto:m.paprocki@onet.eu" class="main-btn-mail">E-MAIL: m.paprocki@onet.eu</a>
+            
+            <p style="margin-top: 20px; font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px;">Kontakt telefoniczny (Wyjątkowo):</p>
+            <a href="tel:+48605697548" class="sub-link-tel">TEL: 605 697 548</a>
         </div>
 
-        <p style="margin-top: 30px; font-weight: 900; font-size: 1.2rem;">WROCŁAW, UL. SOKOLNICZA 7 LOK. 17</p>
-        <p style="opacity: 0.8; font-weight: bold;">MAREK PAPROCKI — OBSŁUGA TECHNICZNA</p>
+        <p style="margin-top: 40px; font-weight: 900; font-size: 1.1rem; text-transform: uppercase;">Marek Paprocki — Obsługa Techniczna</p>
+        <p style="opacity: 0.8; font-weight: bold;">ul. Sokolnicza 7 lok. 17, Wrocław</p>
     </div> 
 
     <footer>
         <div class="footer-grid">
             <div class="footer-item">
-                <h4>Kontakt Bezpośredni</h4>
-                <strong>FixVolt Serwis</strong><br>
-                Tel: <a href="tel:+48605697548">605 697 548</a><br>
+                <h4>Kontakt</h4>
+                FixVolt Serwis<br>
                 Email: <a href="mailto:m.paprocki@onet.eu">m.paprocki@onet.eu</a><br>
-                Pn - Pt: 09:00 - 17:00
+                Tel: <a href="tel:+48605697548">605 697 548</a>
             </div>
             <div class="footer-item">
                 <h4>Lokalizacja</h4>
@@ -126,7 +134,7 @@
             </div>
         </div>
         <div style="margin-top: 40px; border-top: 1px solid #222; padding-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 11px;">
-            © 2026 FIXVOLT WROCŁAW. SERWIS FALOWNIKÓW HYBRYDOWYCH I SIECIOWYCH.
+            © 2026 FIXVOLT WROCŁAW. WSZYSTKIE PRAWA ZASTRZEŻONE.
         </div>
     </footer> 
 
