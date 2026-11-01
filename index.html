@@ -3,28 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>FixVolt Wrocław | Serwis Inwerterów Deye, Huawei, Sofar | Sokolnicza 7</title>
-    <meta name="description" content="Profesjonalny serwis inwerterów PV we Wrocławiu. Naprawa Deye (F56), Huawei (ISO), Sofar. Serwis wysyłkowy cała Polska. Szybka diagnoza i gwarancja.">
-    
+    <title>Naprawa Falowników, Magazynów Energii BESS i Stacji EV | FixVolt Wrocław</title>
+    <meta name="description" content="Specjalistyczny serwis elektroniki mocy FixVolt we Wrocławiu. Naprawa inwerterów PV (Deye, Sofar, Growatt, Huawei), magazynów energii BESS, modułów stacji ładowania EV oraz zasilaczy UPS. Komponentowy serwis IGBT/SMPS. Obsługa całej Polski przez InPost!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #ffcc00; --bg: #050505; --accent: #1a1a1a; --text: #f0f0f0; }
-        body { font-family: 'JetBrains Mono', 'Segoe UI', monospace; margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
-        
-        header { padding: 100px 20px; text-align: center; background: radial-gradient(circle at 50% 50%, #111 0%, #000 100%); border-bottom: 2px solid var(--gold); }
-        .brand { font-size: clamp(34px, 8vw, 64px); font-weight: 900; letter-spacing: -2px; margin: 0; text-transform: uppercase; }
-        .tagline { font-size: 20px; color: var(--gold); margin-top: 10px; font-weight: 700; border: 1px solid var(--gold); display: inline-block; padding: 5px 15px; }
-        
+        :root {
+            --bg: #050505;
+            --accent: #111111;
+            --text: #f0f0f0;
+            --gold: #ffb700;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'JetBrains Mono', monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid #222;
+        }
+        .brand {
+            font-size: clamp(36px, 8vw, 72px);
+            font-weight: 900;
+            color: var(--gold);
+            margin: 0;
+            letter-spacing: 2px;
+        }
+        .tagline {
+            font-size: clamp(14px, 3vw, 20px);
+            font-weight: 700;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+        .special-badge {
+            background: var(--gold);
+            color: #000;
+            padding: 2px 8px;
+            font-size: 12px;
+            font-weight: 900;
+            border-radius: 4px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
         .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         .card { background: var(--accent); padding: 30px; border-left: 3px solid #333; transition: 0.3s; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; }
         .card:hover { border-left-color: var(--gold); background: #0a0a0a; transform: translateX(10px); }
         .card h3 { color: var(--gold); text-transform: uppercase; margin-top: 0; font-size: 20px; }
         .card p { flex-grow: 1; margin-bottom: 0; }
-        
+
         .cta-section { background: var(--gold); color: #000; padding: 80px 20px; text-align: center; }
         .btn-wrapper { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 30px; }
-        
+
         /* ГЛАВНАЯ КНОПКА - ПОЧТА */
         .main-btn-mail { background: #000; color: var(--gold); padding: 25px 50px; font-size: clamp(16px, 4vw, 26px); font-weight: 900; text-decoration: none; display: inline-block; box-shadow: 10px 10px 0px rgba(0,0,0,0.2); transition: 0.2s; border: none; cursor: pointer; min-width: 320px; text-transform: uppercase; }
         .main-btn-mail:hover { transform: translate(-3px, -3px); box-shadow: 15px 15px 0px rgba(0,0,0,0.3); background: #111; }
@@ -36,66 +75,63 @@
         footer { padding: 60px 20px; text-align: center; opacity: 0.9; font-size: 14px; color: #888; border-top: 1px solid #222; background: #000; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; text-align: left; }
         .footer-item h4 { color: var(--gold); margin-bottom: 10px; text-transform: uppercase; }
-        a { color: var(--gold); text-decoration: none; }
-        .special-badge { background: #ff0000; color: #fff; font-size: 12px; padding: 2px 8px; vertical-align: middle; margin-left: 10px; font-weight: 900; }
+        .footer-item a { color: #fff; text-decoration: none; }
+        .footer-item a:hover { color: var(--gold); }
     </style>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "FixVolt Wrocław",
-      "telephone": "+48605697548",
-      "email": "m.paprocki@onet.eu",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Sokolnicza 7 lok. 17",
-        "addressLocality": "Wrocław",
-        "postalCode": "53-676",
-        "addressCountry": "PL"
-      }
-    }
-    </script>
 </head>
-<body> 
+<body>
 
     <header>
-        <p style="letter-spacing: 5px; opacity: 0.5;">WROCŁAW / SOKOLNICZA 7 / CAŁA POLSKA</p>
         <h1 class="brand">FIXVOLT</h1>
-        <div class="tagline">NAPRAWA INWERTERÓW I FALOWNIKÓW</div>
+        <div class="tagline">NAPRAWA INWERTERÓW, MAGAZYNÓW ENERGII BESS I ELEKTRONIKI MOCY</div>
         <p style="max-width: 800px; margin: 30px auto; font-style: italic; color: #888;">
-            "Specjalistyczny serwis elektroniki mocy. Naprawiamy inwertery hybrydowe i sieciowe na poziomie komponentów. Szybka diagnoza i pełna gwarancja."
+            "Specjalistyczny serwis elektroniki mocy. Naprawiamy inwertery hybrydowe, magazyny energii oraz przemysłowe układy zasilania na poziomie komponentów. Szybka diagnoza, rzetelna naprawa i pełna gwarancja."
         </p>
-    </header> 
+    </header>
 
     <div class="container">
         <div class="grid">
             <div class="card">
-                <h3>Serwis Komponentowy</h3>
-                <p>Naprawa płyt głównych, wymiana modułów IGBT и tranzystorów MOSFET. Ratujemy sprzęt po przepięciach и burzach.</p>
+                <h3>Serwis Komponentowy (IGBT / SMPS)</h3>
+                <p>Wymiana modułów IGBT, tranzystorów MOSFET oraz naprawa zasilaczy impulsowych (SMPS) i układów sterowania. Ratujemy sprzęt po przepięciach, burzach i skokach napięcia w sieci.</p>
             </div>
+            
             <div class="card">
                 <h3>Błąd Deye F56 / F13 <span class="special-badge">HOT</span></h3>
-                <p>Specjalistyczne usuwanie błędów DC Bus High (F56) oraz Overcurrent (F13) w inwerterach hybrydowych.</p>
+                <p>Specjalistyczne usuwanie błędów DC Bus High (F56) oraz Overcurrent (F13) w inwerterach hybrydowych. Konfiguracja i optymalizacja systemów.</p>
             </div>
+            
+            <div class="card">
+                <h3>Magazyny Energii BESS & BMS <span class="special-badge">PRO</span></h3>
+                <p>Diagnostyka i naprawa systemów BESS (Sofar Amass, Deye, Pylontech). Wykrywanie błędów komunikacji CAN/RS485, balansowanie cel oraz naprawa płyt BMS.</p>
+            </div>
+            
+            <div class="card">
+                <h3>Stacje Ładowania EV (Moduły DC)</h3>
+                <p>Serwis wysokonapięciowych modułów mocy w szybkich ładowarkach samochodowych (DC Fast Chargers). Naprawa prostowników i przetwornic mocy.</p>
+            </div>
+
             <div class="card">
                 <h3>Błędy Izolacji (ISO)</h3>
-                <p>Profesjonalne wykrywanie i naprawa błędów upływności doziemnej w urządzeniach Huawei, Sofar, Growatt i Solis.</p>
+                <p>Profesjonalne wykrywanie i naprawa błędów upływności doziemnej w urządzeniach Huawei, Sofar, Growatt, Solis i innych.</p>
             </div>
+            
             <div class="card">
-                <h3>Serwis Wysyłkowy</h3>
-                <p>Obsługa całej Polski przez <strong>Paczkomaty InPost</strong>. Ekspresowa diagnoza urządzenia w 48h od dostarczenia.</p>
+                <h3>Zasilacze Awaryjne UPS</h3>
+                <p>Serwis przemysłowych zasilaczy UPS i falowników komercyjnych. Naprawa torów zasilania, układów ładowania i automatyki przełączającej.</p>
             </div>
+            
             <div class="card">
-                <h3>Ekspertyzy Techniczne</h3>
-                <p>Przygotowujemy pełną dokumentację i kosztorysy napraw dla firm ubezpieczeniowych po szkodach burzowych.</p>
+                <h3>Serwis Wysyłkowy (Polska)</h3>
+                <p>Obsługa całej Polski przez <strong>Paczkomaty InPost</strong> oraz kurierów. Ekspresowa diagnoza urządzenia w 48h od dostarczenia do warsztatu we Wrocławiu.</p>
             </div>
+            
             <div class="card">
-                <h3>Gwarancja Jakości</h3>
-                <p>Każdy naprawiony falownik przechodzi testy pod obciążeniem. Wystawiamy pisemną gwarancję oraz fakturę VAT.</p>
+                <h3>Ekspertyzy Ubezpieczeniowe</h3>
+                <p>Przygotowujemy profesjonalną dokumentację, protokoły uszkodzeń i kosztorysy napraw dla firm ubezpieczeniowych po szkodach burzowych.</p>
             </div>
         </div>
-    </div> 
+    </div>
 
     <div class="cta-section">
         <h2 style="margin: 0; text-transform: uppercase;">Zgłoś awarię do serwisu</h2>
@@ -103,14 +139,13 @@
         
         <div class="btn-wrapper">
             <a href="mailto:m.paprocki@onet.eu" class="main-btn-mail">E-MAIL: m.paprocki@onet.eu</a>
-            
             <p style="margin-top: 20px; font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px;">Kontakt telefoniczny (Wyjątkowo):</p>
             <a href="tel:+48605697548" class="sub-link-tel">TEL: 605 697 548</a>
         </div>
 
         <p style="margin-top: 40px; font-weight: 900; font-size: 1.1rem; text-transform: uppercase;">Marek Paprocki — Obsługa Techniczna</p>
         <p style="opacity: 0.8; font-weight: bold;">ul. Sokolnicza 7 lok. 17, Wrocław</p>
-    </div> 
+    </div>
 
     <footer>
         <div class="footer-grid">
@@ -118,25 +153,26 @@
                 <h4>Kontakt</h4>
                 FixVolt Serwis<br>
                 Email: <a href="mailto:m.paprocki@onet.eu">m.paprocki@onet.eu</a><br>
-                Tel: <a href="tel:+48605697548">605 697 548</a>
+                Tel: <a href="tel:+48605697548">605 697 548</a><br>
+                Pn - Pt: 09:00 - 17:00
             </div>
             <div class="footer-item">
                 <h4>Lokalizacja</h4>
                 ul. Sokolnicza 7 lok. 17<br>
                 53-676 Wrocław<br>
-                (Budynek Macondo)
+                Dolny Śląsk, Polska
             </div>
             <div class="footer-item">
-                <h4>Dane Firmy</h4>
-                PHU MACO Marek Paprocki<br>
-                NIP: 8951096794<br>
-                REGON: 932125378
+                <h4>Zakres Usług</h4>
+                Inwertery PV & Hybrydy<br>
+                Magazyny energii BESS & EV<br>
+                Przemysłowa elektronika mocy
             </div>
         </div>
         <div style="margin-top: 40px; border-top: 1px solid #222; padding-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 11px;">
             © 2026 FIXVOLT WROCŁAW. WSZYSTKIE PRAWA ZASTRZEŻONE.
         </div>
-    </footer> 
+    </footer>
 
 </body>
 </html>
